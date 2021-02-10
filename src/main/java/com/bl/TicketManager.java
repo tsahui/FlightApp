@@ -1,7 +1,6 @@
 package com.bl;
 
 import com.dal.DBManager;
-import com.dal.Ticket;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +23,7 @@ public class TicketManager {
     public boolean getTicketStatus(UUID uuid) {
 
         logger.debug("getting ticket status for id: {}", uuid);
-
-        Ticket ticket = dbManager.getTicket(uuid);
-        return ticket != null;
+        return dbManager.isTicketExists(uuid);
     }
 
 }
